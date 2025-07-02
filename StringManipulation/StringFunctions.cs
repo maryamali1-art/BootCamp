@@ -63,7 +63,7 @@ namespace StringManipulation
                 return false;
             }
         }
-        
+
         public static bool CheckDigit(string input)
         {
             try
@@ -74,6 +74,68 @@ namespace StringManipulation
             catch (ArgumentNullException)
             {
                 return false;
+            }
+        }
+
+        public static bool CheckLetter(string input)
+        {
+            try
+            {
+                // Using the All() LINQ to see if there are letters.
+                return input.All(char.IsLetter);
+            }
+            catch (ArgumentNullException)
+            {
+                return false;
+            }
+        }
+
+        public static string Capitalize(string input)
+        {
+            try
+            {
+                // Adding strings with an upper first char and a lower substring starting from index 1.
+                return char.ToUpper(input[0]) + input.Substring(1).ToLower();
+            }
+            catch (ArgumentNullException e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string SwapLettersCases(string input)
+        {
+            try
+            {
+                // Making a list of chars for the result.
+                char[] result = new char[input.Length];
+
+                // Generating a for loop for changing each character.
+                for (int i = 0; i < input.Length; i++)
+                {
+                    char c = input[i];
+                    // Using a ternary conditional operator.
+                    result[i] = char.IsUpper(c) ? char.ToLower(c) : char.ToUpper(c);
+                }
+
+                return new string(result);
+            }
+            catch (ArgumentNullException e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string[] SplitString(string input)
+        {
+            try
+            {
+                return input.Split(' ');
+            }
+            catch (ArgumentNullException e)
+            {
+                // Changing the exception type to string[].
+                return new string[] { $"Exception: {e}" };
             }
         }
     }

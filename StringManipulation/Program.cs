@@ -21,5 +21,17 @@ class Program
 
         // Exercise 6: Check if a string contains only digits.
         Console.WriteLine($"Exercise 6: {StringFunctions.CheckDigit("12345s")}");                      // Output: False
+
+        // Exercise 7: Check if a string contains only letters.
+        Console.WriteLine($"Exercise 7: {StringFunctions.CheckLetter("hello")}");                      // Output: False
+
+        // Exercise 8: Capitalize the first character of a string.
+        Console.WriteLine($"Exercise 8: {StringFunctions.Capitalize("hello")}");                       // Output: Hello
+
+        // Exercise 9: Swap the case of each character in a string.
+        Console.WriteLine($"Exercise 9: {StringFunctions.SwapLettersCases("gRadE")}");                 // Output: GrADe
+
+        // Exercise 10: Split a string into words. 
+        Console.WriteLine($"Exercise 10: {StringFunctions.SplitString("hello world")}");
     }
 }
