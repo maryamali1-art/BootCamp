@@ -130,12 +130,115 @@ namespace StringManipulation
         {
             try
             {
+                // Using Split() to return a list.
                 return input.Split(' ');
             }
             catch (ArgumentNullException e)
             {
                 // Changing the exception type to string[].
                 return new string[] { $"Exception: {e}" };
+            }
+        }
+
+        public static string ConcatWords(string[] input)
+        {
+            try
+            {
+                string result = "";
+                // Using lambda function to loop.
+                input.ToList().ForEach(c => result += c + " ");
+                return result;
+            }
+            catch (ArgumentNullException e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string TrimWhitespaces(string input)
+        {
+            try
+            {
+                return input.Trim();
+            }
+            catch (ArgumentNullException e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static int CountSpaces(string input)
+        {
+            try
+            {
+                // Using lambda functions to get the number of whitespaces and count them.
+                return input.Count(c => c == ' ');
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        public static bool IsEmail(string input)
+        {
+            try
+            {
+                // Using Contains() to check if it has @ and .
+                return input.Contains("@") && input.Contains(".");
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public static string FirstFiveCharacters(string input)
+        {
+            try
+            {
+                return input.Substring(0, 5);
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string LastThreeCharacters(string input)
+        {
+            try
+            {
+                return input.Substring(input.Length - 3, 3);
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string ChangeCommaToSemicolon(string input)
+        {
+            try
+            {
+                return input.Replace(",", ";");
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static bool AreAnagrams(string input, string input1)
+        {
+            try
+            {
+                // Take the input, make a loop in a lambda. Sort the loop. Change to array and change the array into a string to equalize.
+                return new string(input.OrderBy(c => c).ToArray()) == new string(input1.OrderBy(c => c).ToArray());
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }
