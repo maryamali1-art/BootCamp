@@ -241,5 +241,97 @@ namespace StringManipulation
                 return false;
             }
         }
+
+        public static string[] GetDigitsFromString(string input)
+        {
+            try
+            {
+                // Checking is every char is a digit using Where(), converting them back to a string using Select() and finally
+                // turning them back to an array to match output type.
+                return input.Where(char.IsDigit).Select(c => c.ToString()).ToArray();
+            }
+            catch (Exception e)
+            {
+                return new string[] { $"Exception: {e}" };
+            }
+        }
+
+        public static char[] GetLettersInString(string input)
+        {
+            try
+            {
+                // Using Where() to find a letter and then converting the chars into an array.
+                return input.Where(char.IsLetter).ToArray();
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}".ToCharArray();
+            }
+        }
+
+        public static string EmailMasker(string input)
+        {
+            try
+            {
+                int atIndex = input.IndexOf('@');
+                // Add the first character, make a repeated string and add the remaining after the @.
+                return input[0] + new string('*', atIndex) + input.Substring(atIndex, input.Length - atIndex);
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static byte[] ConvertStringToASCIICodes(string input)
+        {
+            try
+            {
+                return Encoding.ASCII.GetBytes(input);
+            }
+            catch (Exception)
+            {
+                return new byte[] { 0 };
+            }
+        }
+
+        public static string RemoveDuplicates(string input)
+        {
+            try
+            {
+                // Splitting the string into words, finding only the distinct words and joining them into a string.
+                return string.Join(" ", input.Split(" ").Distinct());
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string GetFileExtension(string input)
+        {
+            try
+            {
+                int dotIndex = input.IndexOf(".") + 1;  // add 1 to remove the ".".
+
+                return input.Substring(dotIndex, input.Length - dotIndex);
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
+
+        public static string ReplaceNewlineWithWhitespace(string input)
+        {
+            try
+            {
+                return input.Replace("\n", " ");
+            }
+            catch (Exception e)
+            {
+                return $"Exception: {e}";
+            }
+        }
     }
 }
