@@ -1,2 +1,3 @@
-global using StringManipulation;
 global using System.Text;
+
+global using StringManipulation;
