@@ -1,6 +1,4 @@
-﻿using StringManipulation;
-
-class Program
+﻿class Program
 {
     static void Main()
     {
