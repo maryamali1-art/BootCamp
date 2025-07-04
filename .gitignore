@@ -1,0 +1,13 @@
+# ملفات النظام
+.vs/
+*.suo
+*.user
+
+# مجلدات البناء
+bin/
+obj/
+
+# ملفات NuGet
+*.nupkg
+project.lock.json
+project.assets.json
