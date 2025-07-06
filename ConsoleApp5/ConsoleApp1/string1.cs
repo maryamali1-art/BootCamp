@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
@@ -376,5 +377,55 @@ namespace ConsoleApp1
             return Input.Substring(0, 10);
 
         }
+        //41- Extract phone number from a sentence.
+        public static string PhoneNumber()
+        {
+            string result="" ;
+            string Input = "Call me at 0791234567";
+          foreach( var c in Input.Split(' '))
+            {
+                if (c.StartsWith( "07") & c.Length == 10)
+                {
+                    result = c;
+                }
+            }
+            return result;
+
+        }
+        //42-Format phone number to international style.
+        public static string PhoneNumberInInternationalStyle()
+        {
+            string result = "";
+            string Input = "+9647912345678";
+           
+            foreach( char c in Input)
+            {
+                if(c == '+')
+                {
+                    result = "00";
+                }
+            }
+            return result + Input.Substring(1, 13);
+        }
+        //45-Detect language of a sentence.       
+        public static string DetectLanguage()
+            {
+            string input = "كيف حالك";
+            string result = "";
+            foreach(char c in input)
+            {
+                if ( c >= 0x0600 && c <= 0x06FF) 
+                    result= "Arabic";
+                else if ( c >= 'A' && c <= 'Z' ||  c >= 'a' && c <= 'z')
+                    result= "English";
+                else
+                    result= "Unknown";
+
+            }
+            return result;
+        }
+       
+
+
     }
 }
