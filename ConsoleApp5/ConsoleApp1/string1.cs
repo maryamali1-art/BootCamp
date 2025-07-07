@@ -6,7 +6,9 @@ using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ConsoleApp1
 {
@@ -424,7 +426,181 @@ namespace ConsoleApp1
             }
             return result;
         }
+        //46-Compare two strings ignoring punctuation.
+        //47-Generate acronym from a phrase.
+
+        public static string GenerateAcronymFromPhrase()
+        {
+            string result = "";
+            string Input = "World Health Organization";
+            string[] str = Input.Split(' ');
+           for( int i=0; i < str.Length; i++)
+            {
+                result += str[i][0];
+            }
+            return result;
+        }
+        //48-Remove hashtags from a sentence.
+public static string RemoveHashtags()
+        {
+            string input = "World# Health #Organization";
+            return input.Replace("#", "");
+
+         }
+
+        //49- Extract mentions (e.g., @user) from text.
+        public static List<string> ExtractMentions()
+        {
+            string input = "@user1 hello @user2 how are @friend?";
+            string[] words = input.Split(' ');
+            List<string> mentions = new List<string>();
+
+            foreach (string word in words)
+            {
+                if (word.StartsWith("@"))
+                    mentions.Add(word);
+            }
+
+            return mentions;
+        }
+        //50- Count number of hashtags in a sentence
+        public static int CountHashtags()
+        {
+            string input = "#love #life";
+            int count = 0;
+            string[] words = input.Split(' ');
+            foreach (string word in words)
+            {
+                if (word.StartsWith("@"))
+                    count++;
+            }
+            return count;
+        }
+        //51- Insert newline after every full stop.
+        public static string InsertNewline()
+        {
+            string Input = "Hi. How are you?";
+               return Input.Replace(". ", "./n");
+        }
+        //52-Reverse word order in a sentence.
+        public static string ReverseWordOrder()
+        {
+            string input = "I am fine";
+            return string.Join(" ", input.Split(' ').Reverse());
+
+        }
+        //53-Sort words alphabetically in a sentence.
+        public static string SortWords()
+        {
+            string Input = "banana apple";
+            string[] str = Input.Split(' ');
+            Array.Sort(str);
+            return string.Join(" ", str);
+        }
+        //54-Generate a slug from a title.
+         public static string GenerateSlug()
+        {
+            string Input = "My Title";
+            return Input.ToLower().Replace(" ", "-");
+        }
+        //55- Count the number of uppercase letters.
+         public static int CountNumberUppercase()
+        {
+          string Input="Hi There";
+            int count = 0;
+            char[] chars= Input.ToCharArray();
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (char.IsUpper(chars[i]))
+                {
+                    count++;
+                }
+            }
+            return count;      
+        }
+        //56- Replace numbers with words.
+        /*public static string ReplaceNumbersWithWords()
+        {
+            string[] num = new string[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+
+        }*/
+        //57- Find palindromic words in a paragraph.
+        public static string PalindromicWords()
+        {
+            string input = "madam racecar hello";
+            string[] str = input.Split(' ');
+            string result = "";
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                string reversed = new string(str[i].ToCharArray().Reverse().ToArray());
+                if (str[i] == reversed)
+                {
+                    result += str[i] + " ";
+                }
+            }
+
+            return result;
+        }
+        //58-Replace tabs with 4 spaces.
+        public static string ReplaceTabsWithSpaces()
+        {
+            string Input="\tTab";
+            return Input.Replace("\t", "    ");
+        }
+        //65-Check if string is valid JSON.
+
+        public static string RemoveNonEnglish()
+        {
+            string input = "مرحبا";
+            return Regex.Replace(input, "[^a-zA-Z]", "");
+        }
+        //67- Shorten text to a summary (first sentence).
+         public static string ShortenText()
+        {
+            string Input="Hello. How are you?";
+            string[] str = Input.Split(' ');
+            return str[0];
+        }
+        //68- Check for repeated words.
+        public static bool RepeatedWords()
+        {
+            string input = " hello hello";
+            string[] str = input.Split(' ');
+            for(int i=0; i<str.Length;i++)
+            {
+                if (str[i] == str[i + 1])
+                {
+                    return true;
+
+                }
+            }
+            return false;
+
+        }
+        //69-Remove stop words from sentence.
+        public static string RemoveStopWords()
+        {
+            string result = "";
+            string input = "this is a test";
+            string[] stopWords = {"is" , "an", "the", "a", "in", "on", "at", "this", "that", "and", "or", "but" };
+            string[] words = input.Split(' ');
+            for (int i = 0; i < words.Length; i++)
+            {
+                for (int j = 0; j < stopWords.Length; j++)
+
+                    if (words[i] == stopWords[j])
+                    {
+                        result = "";
+                    }
+                result += words[i];
+            }
+            return result;
+
+        }
        
+
 
 
     }
