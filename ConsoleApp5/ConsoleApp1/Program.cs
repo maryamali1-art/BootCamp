@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(string1.DetectLanguage());
+            Console.WriteLine(string1.RemoveStopWords());
             Console.ReadKey();
         }
     }
